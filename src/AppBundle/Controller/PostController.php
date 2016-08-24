@@ -46,6 +46,8 @@ class PostController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $titleSlug = $this->get('cocur_slugify')->slugify($form['title']->getData());
+            $post->setTitleSlug($titleSlug);
             $em = $this->getDoctrine()->getManager();
             $em->persist($post);
             $em->flush();
