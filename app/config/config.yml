@@ -76,4 +76,4 @@ fos_user:
 cocur_slugify:
     lowercase: true
     separator: "_"
-    rulesets: { }
+    rulesets: { default: 'polish'}

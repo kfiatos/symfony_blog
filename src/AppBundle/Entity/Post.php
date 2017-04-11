@@ -3,11 +3,12 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use \Transliterator;
 
 /**
  * Post
  *
- * @ORM\Table(name="post")
+ * @ORM\Table(name="posts")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\PostRepository")
  */
 class Post
@@ -59,7 +60,7 @@ class Post
     /**
      * @var string
      *
-     * @ORM\Column(name="author", type="string", length=255)
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
      */
     private $author;
 
@@ -134,6 +135,7 @@ class Post
      */
     public function setTitleSlug($titleSlug)
     {
+//        $titleSlug = $this->prepareTitleSlug($titleSlug);
         $this->titleSlug = $titleSlug;
 
         return $this;
@@ -224,11 +226,11 @@ class Post
     /**
      * Set author
      *
-     * @param string $author
+     * @param User $author
      *
      * @return Post
-     */
-    public function setAuthor($author)
+`     */
+    public function setAuthor(User $author)
     {
         $this->author = $author;
 
@@ -238,11 +240,19 @@ class Post
     /**
      * Get author
      *
-     * @return string
+     * @return User
      */
     public function getAuthor()
     {
         return $this->author;
+    }
+
+    private function prepareTitleSlug($title)
+    {
+        $transliterator = Transliterator::createFromRules(':: Any-Latin; :: Latin-ASCII; :: NFD; :: [:Nonspacing Mark:] Remove; :: Lower(); :: NFC;', Transliterator::FORWARD);
+        $normalized = $transliterator->transliterate($title);
+        $titleSlug = $this->get('cocur_slugify')->slugify($normalized);
+        return $titleSlug;
     }
 }
 

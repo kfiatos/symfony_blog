@@ -20,7 +20,7 @@ class PostType extends AbstractType
             ->add('content')
 //            ->add('createdAt')
 //            ->add('lastModifiedAt')
-            ->add('author')
+//            ->add('author')
         ;
 
     }

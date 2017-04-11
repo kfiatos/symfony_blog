@@ -7,7 +7,8 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="fos_user")
+ * @ORM\Table(name="users")\
+ *
  */
 class User extends BaseUser
 {
@@ -18,9 +19,16 @@ class User extends BaseUser
      */
     protected $id;
 
+//    /**
+//     * @var \Doctrine\Common\Collections\ArrayCollection
+//     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Post", mappedBy="author")
+//     */
+//    private $posts;
+
     public function __construct()
     {
         parent::__construct();
-        // your own logic
+//        $this->posts = new \Doctrine\Common\Collections\ArrayCollection();
     }
+
 }

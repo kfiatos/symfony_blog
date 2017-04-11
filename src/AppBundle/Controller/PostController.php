@@ -12,7 +12,7 @@ use AppBundle\Form\PostType;
 /**
  * Post controller.
  *
- * @Route("/post")
+ * @Route("/")
  */
 class PostController extends Controller
 {
@@ -64,7 +64,7 @@ class PostController extends Controller
     /**
      * Finds and displays a Post entity.
      *
-     * @Route("/{id}", name="post_show")
+     * @Route("/show/{id}", name="post_show")
      * @Method("GET")
      */
     public function showAction(Post $post)
@@ -80,7 +80,7 @@ class PostController extends Controller
     /**
      * Displays a form to edit an existing Post entity.
      *
-     * @Route("/{id}/edit", name="post_edit")
+     * @Route("/edit/{id}", name="post_edit")
      * @Method({"GET", "POST"})
      */
     public function editAction(Request $request, Post $post)
@@ -107,7 +107,7 @@ class PostController extends Controller
     /**
      * Deletes a Post entity.
      *
-     * @Route("/{id}", name="post_delete")
+     * @Route("/delete/{id}", name="post_delete")
      * @Method("DELETE")
      */
     public function deleteAction(Request $request, Post $post)
