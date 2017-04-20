@@ -72,6 +72,10 @@ fos_user:
     db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
     firewall_name: main
     user_class: AppBundle\Entity\User
+    from_email:
+            address: kfiatos@gmail.com
+            sender_name: Admin
+
 
 cocur_slugify:
     lowercase: true
