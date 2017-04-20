@@ -30,7 +30,9 @@
         "incenteev/composer-parameter-handler": "^2.0",
         "friendsofsymfony/user-bundle": "~2.0@dev",
         "cocur/slugify": "^2.3",
-        "facebook/graph-sdk": "^5.4"
+        "facebook/graph-sdk": "^5.4",
+        "kint-php/kint": "^1.1",
+        "eightpoints/guzzle-bundle": "^5.3"
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",
