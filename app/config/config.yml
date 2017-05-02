@@ -72,3 +72,47 @@ fos_user:
     db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
     firewall_name: main
     user_class: AppBundle\Entity\User
+    from_email:
+            address: kfiatos@gmail.com
+            sender_name: Admin
+
+
+cocur_slugify:
+    lowercase: true
+    separator: "_"
+    rulesets: { default: 'polish'}
+guzzle:
+    # (de)activate logging/profiler; default: %kernel.debug%
+    logging: true
+
+    clients:
+        api_payment:
+            base_url: "http://api.domain.tld"
+
+            # custom headers (@deprecated, will be removed in v6; new: "headers" in options (see below))
+            headers:
+                Accept: "application/json"
+
+            # guzzle client options (full description here: https://guzzle.readthedocs.org/en/latest/request-options.html)
+            # NOTE: "headers" option is not accepted here as it is provided as described above.
+            options:
+                auth:
+                    - acme     # login
+                    - pa55w0rd # password
+
+                headers:
+                    Accept: "application/json"
+
+                timeout: 30
+
+            # plugin settings
+            plugin:
+                wsse:
+                    username:   "acme"
+                    password:   "pa55w0rd"
+                    created_at: "-10 seconds" # optional
+
+        api_crm:
+            base_url: "http://api.crm.tld"
+            headers:
+                Accept: "application/json"
