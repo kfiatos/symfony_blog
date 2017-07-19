@@ -1,0 +1,8 @@
+.post-list-wrapper {
+    display: flex;
+}
+
+.footer-bg {
+    min-height: 100px;
+    background: gray;
+}
