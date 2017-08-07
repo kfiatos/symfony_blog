@@ -2,18 +2,34 @@
 
 {% block body %}
     <a href="{{ path('post_new') }}">Create a new post</a>
-    <h1>Posts list</h1>
-    <div class="post-list-container">
-        {% for post in posts %}
-            <h2>{{ post.title }}</h2>
-            <div class="post-author">
-                Created by {{ post.author }}
-            </div>
-            <div class="post-wrapper">
-                <p>{{ post.content }}</p>
-            </div>
-        {% endfor %}
-        <div class="sidebar"></div>
+    <div class="post-page-container">
+        <div class="post-list-container">
+            {% for post in posts %}
+                <div class="post-item-wrapper">
+                    <div class="post-image">
+                        <img src="{{ asset('img/thumbnail.001-blog.png') }}" alt="" class="post-image">
+                    </div>
+                    <div class="post-body-wrapper">
+                        <div class="post-title">
+                            {{ post.title }}
+                        </div>
+                        <div class="post-author">
+                            Created by {{  post.author }}
+                        </div>
+                        <div class="post-content">
+                            <p>{{ post.content }}</p>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+            {% endfor %}
+        </div>
+        <div class="sidebar-container">
+            sidebar
+            <div class="sidebar-element">1</div>
+            <div class="sidebar-element">2</div>
+            <div class="sidebar-element">3</div>
+        </div>
     </div>
 
 
